@@ -50,7 +50,8 @@ class reporteDetalladoController extends Controller
      public function getDatosSelect(Request $request)
      {
          $proyecto = $request->input('cliente_proy');
-         $result = DB::table('hotel_proyecto')->where('Nombre_proyecto', '=', $proyecto)->get();
+         $correo = Auth::user()->id;
+         $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->where('itconcierges_id', '=', $correo)->get();
  		    return json_encode($result);
      }
      public function getData(Request $request)
