@@ -84,126 +84,6 @@
       'Location' => 'Stevebauman\\Location\\Facades\\Location',
     ),
   ),
-  'auth' => 
-  array (
-    'defaults' => 
-    array (
-      'guard' => 'web',
-      'passwords' => 'users',
-    ),
-    'guards' => 
-    array (
-      'web' => 
-      array (
-        'driver' => 'session',
-        'provider' => 'users',
-      ),
-      'api' => 
-      array (
-        'driver' => 'token',
-        'provider' => 'users',
-      ),
-    ),
-    'providers' => 
-    array (
-      'users' => 
-      array (
-        'driver' => 'eloquent',
-        'model' => 'App\\User',
-        'table' => 'itconcierges',
-      ),
-    ),
-    'passwords' => 
-    array (
-      'users' => 
-      array (
-        'provider' => 'users',
-        'email' => 'auth.emails.password',
-        'table' => 'password_resets_one',
-        'expire' => 60,
-      ),
-    ),
-  ),
-  'broadcasting' => 
-  array (
-    'default' => 'pusher',
-    'connections' => 
-    array (
-      'pusher' => 
-      array (
-        'driver' => 'pusher',
-        'key' => NULL,
-        'secret' => NULL,
-        'app_id' => NULL,
-        'options' => 
-        array (
-        ),
-      ),
-      'redis' => 
-      array (
-        'driver' => 'redis',
-        'connection' => 'default',
-      ),
-      'log' => 
-      array (
-        'driver' => 'log',
-      ),
-    ),
-  ),
-  'cache' => 
-  array (
-    'default' => 'file',
-    'stores' => 
-    array (
-      'apc' => 
-      array (
-        'driver' => 'apc',
-      ),
-      'array' => 
-      array (
-        'driver' => 'array',
-      ),
-      'database' => 
-      array (
-        'driver' => 'database',
-        'table' => 'cache',
-        'connection' => NULL,
-      ),
-      'file' => 
-      array (
-        'driver' => 'file',
-        'path' => '/var/www/html/aio_sitwifi/storage/framework/cache',
-      ),
-      'memcached' => 
-      array (
-        'driver' => 'memcached',
-        'servers' => 
-        array (
-          0 => 
-          array (
-            'host' => '127.0.0.1',
-            'port' => 11211,
-            'weight' => 100,
-          ),
-        ),
-      ),
-      'redis' => 
-      array (
-        'driver' => 'redis',
-        'connection' => 'default',
-      ),
-    ),
-    'prefix' => 'laravel',
-  ),
-  'compile' => 
-  array (
-    'files' => 
-    array (
-    ),
-    'providers' => 
-    array (
-    ),
-  ),
   'database' => 
   array (
     'fetch' => 8,
@@ -284,33 +164,6 @@
       ),
     ),
   ),
-  'filesystems' => 
-  array (
-    'default' => 'local',
-    'cloud' => 's3',
-    'disks' => 
-    array (
-      'local' => 
-      array (
-        'driver' => 'local',
-        'root' => '/var/www/html/aio_sitwifi/storage/app',
-      ),
-      'public' => 
-      array (
-        'driver' => 'local',
-        'root' => '/var/www/html/aio_sitwifi/storage/app/public',
-        'visibility' => 'public',
-      ),
-      's3' => 
-      array (
-        'driver' => 's3',
-        'key' => 'your-key',
-        'secret' => 'your-secret',
-        'region' => 'your-region',
-        'bucket' => 'your-bucket',
-      ),
-    ),
-  ),
   'languageswitcher' => 
   array (
     'switchPath' => 'lang',
@@ -319,20 +172,76 @@
     'redirect' => 'back',
     'redirect_route' => '/',
   ),
-  'mail' => 
+  'broadcasting' => 
   array (
-    'driver' => 'smtp',
-    'host' => 'smtp.gmail.com',
-    'port' => '587',
-    'from' => 
+    'default' => 'pusher',
+    'connections' => 
     array (
-      'address' => 'desarrollo@sitwifi.com',
-      'name' => 'Soporte',
+      'pusher' => 
+      array (
+        'driver' => 'pusher',
+        'key' => NULL,
+        'secret' => NULL,
+        'app_id' => NULL,
+        'options' => 
+        array (
+        ),
+      ),
+      'redis' => 
+      array (
+        'driver' => 'redis',
+        'connection' => 'default',
+      ),
+      'log' => 
+      array (
+        'driver' => 'log',
+      ),
     ),
-    'encryption' => 'tls',
-    'username' => 'desarrollo@sitwifi.com',
-    'password' => 'DesWifi17',
-    'sendmail' => '/usr/sbin/sendmail -bs',
+  ),
+  'cache' => 
+  array (
+    'default' => 'file',
+    'stores' => 
+    array (
+      'apc' => 
+      array (
+        'driver' => 'apc',
+      ),
+      'array' => 
+      array (
+        'driver' => 'array',
+      ),
+      'database' => 
+      array (
+        'driver' => 'database',
+        'table' => 'cache',
+        'connection' => NULL,
+      ),
+      'file' => 
+      array (
+        'driver' => 'file',
+        'path' => '/var/www/html/aio_sitwifi/storage/framework/cache',
+      ),
+      'memcached' => 
+      array (
+        'driver' => 'memcached',
+        'servers' => 
+        array (
+          0 => 
+          array (
+            'host' => '127.0.0.1',
+            'port' => 11211,
+            'weight' => 100,
+          ),
+        ),
+      ),
+      'redis' => 
+      array (
+        'driver' => 'redis',
+        'connection' => 'default',
+      ),
+    ),
+    'prefix' => 'laravel',
   ),
   'queue' => 
   array (
@@ -380,6 +289,75 @@
       'table' => 'failed_jobs',
     ),
   ),
+  'session' => 
+  array (
+    'driver' => 'file',
+    'lifetime' => 120,
+    'expire_on_close' => false,
+    'encrypt' => false,
+    'files' => '/var/www/html/aio_sitwifi/storage/framework/sessions',
+    'connection' => NULL,
+    'table' => 'sessions',
+    'lottery' => 
+    array (
+      0 => 2,
+      1 => 100,
+    ),
+    'cookie' => 'laravel_session',
+    'path' => '/',
+    'domain' => NULL,
+    'secure' => false,
+    'http_only' => true,
+  ),
+  'auth' => 
+  array (
+    'defaults' => 
+    array (
+      'guard' => 'web',
+      'passwords' => 'users',
+    ),
+    'guards' => 
+    array (
+      'web' => 
+      array (
+        'driver' => 'session',
+        'provider' => 'users',
+      ),
+      'api' => 
+      array (
+        'driver' => 'token',
+        'provider' => 'users',
+      ),
+    ),
+    'providers' => 
+    array (
+      'users' => 
+      array (
+        'driver' => 'eloquent',
+        'model' => 'App\\User',
+        'table' => 'itconcierges',
+      ),
+    ),
+    'passwords' => 
+    array (
+      'users' => 
+      array (
+        'provider' => 'users',
+        'email' => 'auth.emails.password',
+        'table' => 'password_resets_one',
+        'expire' => 60,
+      ),
+    ),
+  ),
+  'compile' => 
+  array (
+    'files' => 
+    array (
+    ),
+    'providers' => 
+    array (
+    ),
+  ),
   'services' => 
   array (
     'mailgun' => 
@@ -410,25 +388,20 @@
       'redirect' => 'http://sitwificun.dyndns.org:8001/auth/google/callback',
     ),
   ),
-  'session' => 
+  'mail' => 
   array (
-    'driver' => 'file',
-    'lifetime' => 120,
-    'expire_on_close' => false,
-    'encrypt' => false,
-    'files' => '/var/www/html/aio_sitwifi/storage/framework/sessions',
-    'connection' => NULL,
-    'table' => 'sessions',
-    'lottery' => 
+    'driver' => 'smtp',
+    'host' => 'smtp.gmail.com',
+    'port' => '587',
+    'from' => 
     array (
-      0 => 2,
-      1 => 100,
+      'address' => 'desarrollo@sitwifi.com',
+      'name' => 'Soporte',
     ),
-    'cookie' => 'laravel_session',
-    'path' => '/',
-    'domain' => NULL,
-    'secure' => false,
-    'http_only' => true,
+    'encryption' => 'tls',
+    'username' => 'desarrollo@sitwifi.com',
+    'password' => 'DesWifi17',
+    'sendmail' => '/usr/sbin/sendmail -bs',
   ),
   'view' => 
   array (
@@ -437,6 +410,33 @@
       0 => '/var/www/html/aio_sitwifi/resources/views',
     ),
     'compiled' => '/var/www/html/aio_sitwifi/storage/framework/views',
+  ),
+  'filesystems' => 
+  array (
+    'default' => 'local',
+    'cloud' => 's3',
+    'disks' => 
+    array (
+      'local' => 
+      array (
+        'driver' => 'local',
+        'root' => '/var/www/html/aio_sitwifi/storage/app',
+      ),
+      'public' => 
+      array (
+        'driver' => 'local',
+        'root' => '/var/www/html/aio_sitwifi/storage/app/public',
+        'visibility' => 'public',
+      ),
+      's3' => 
+      array (
+        'driver' => 's3',
+        'key' => 'your-key',
+        'secret' => 'your-secret',
+        'region' => 'your-region',
+        'bucket' => 'your-bucket',
+      ),
+    ),
   ),
   'image' => 
   array (

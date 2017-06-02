@@ -51,7 +51,27 @@ class reporteDetalladoController extends Controller
      {
          $proyecto = $request->input('cliente_proy');
          $correo = Auth::user()->id;
-         $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->where('itconcierges_id', '=', $correo)->get();
+         $priv = Auth::user()->Privilegio;
+         switch ($priv) {
+             case 'IT':
+                 $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->where('itconcierges_id', '=', $correo)->get();
+                 break;
+             case 'ADMSUR':
+                 $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->where('itconcierges_id', '=', $correo)->get();
+                 break;
+             case 'Direccion':
+                 $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->get();
+                 break;
+            case 'Admin':
+                 $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->get();
+                 break;
+            case 'Programador':
+                 $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->get();
+                 break;
+             case 'ADMCENTRO':
+                 $result = DB::table('hotel_proyecto2')->where('Nombre_proyecto', '=', $proyecto)->where('itconcierges_id', '=', $correo)->get();
+                 break;
+         }
  		    return json_encode($result);
      }
      public function getData(Request $request)
