@@ -3770,3 +3770,6 @@ Stack trace:
  in /var/www/html/aio_sitwifi/app/Http/Controllers/DiagHuespedController.php:119
 Stack trace:
 #0 {main}  
+[2017-06-02 16:59:59] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Cannot use [] for reading in /var/www/html/aio_sitwifi/vendor/psy/psysh/src/Psy/ExecutionLoop/Loop.php(79) : eval()'d code:1
+Stack trace:
+#0 {main}  
